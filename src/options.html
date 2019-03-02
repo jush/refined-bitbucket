@@ -15,10 +15,11 @@
             <br />
 
             <label>
-                <input type="checkbox" name="autolinker"> Autolinker: Linkify links in diffs
+                <input type="checkbox" name="autolinker" /> Autolinker: Linkify
+                links in diffs
             </label>
-            <br>
-            <br>
+            <br />
+            <br />
 
             <label>
                 <input type="checkbox" name="highlightOcurrences" /> Highlight
@@ -267,6 +268,22 @@
                     style="width: 100%"
                 ></textarea>
             </div>
+            <br />
+
+            <hr />
+            <label>
+                You can create a file
+                <em>.refined_bitbucket/PULL_REQUEST_OPTIONS.json</em> that will
+                be read from the repository when revieweing a pull requests. For
+                example:<br />
+                <code
+                    >{<br />
+                    "minimum_approvals": 2,<br />
+                    "require_builds": true,<br />
+                    "max_failed_builds": 0 <br />
+                    }</code
+                >
+            </label>
             <br />
 
             <hr />

@@ -8,6 +8,7 @@ import OptionsSync from 'webext-options-sync'
 import SelectorObserver from 'selector-observer'
 
 import augmentPrEntry from './augment-pr-entry'
+import mergeChecks from './merge-checks'
 import autocollapse from './autocollapse'
 import closeAnchorBranch from './close-anchor-branch'
 import collapseDiff from './collapse-diff'
@@ -49,7 +50,6 @@ new OptionsSync().getAll().then(options => {
         autocollapsePaths: (options.autocollapsePaths || '').split('\n'),
         ignorePaths: (options.ignorePaths || '').split('\n'),
     }
-
     init(config)
 })
 
@@ -120,6 +120,7 @@ function pullrequestListRelatedFeatures(config) {
 }
 
 function codeReviewFeatures(config) {
+    mergeChecks.init()
     autocollapse.init(config.autocollapsePaths, config.autocollapseDeletedFiles)
 
     diffIgnore.init(config.ignorePaths)
