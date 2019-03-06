@@ -91,7 +91,7 @@ function shouldMergeBeDisabled(): boolean {
 
     // First, initialize to requireBuilds. Therefore, if CI are required then we marked as failed initially
     var failedCI = requireBuilds
-    if (ciStatus && maxFailedBuilds) {
+    if (ciStatus != null && maxFailedBuilds != null) {
         // Then, figure out if there are more failed builds than the maximum
         failedCI = ciStatus['FAILED'] > maxFailedBuilds
     }
